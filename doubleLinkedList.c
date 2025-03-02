@@ -241,12 +241,6 @@ int main()
     
     struct node* head = NULL;
     
-    //FILE* fp = fopen("inlab02.txt", "r");
-    //if (fp == NULL)
-    //    return -1;
-    //fscanf (fp, "%d %d %d %d %d %d", &X, &k1, &k2, &k3, &k4, &k5);
-    //fclose(fp);
-    
     printf("START DATA: %d, %d, %d, %d, %d, %d\n", X, k1, k2, k3, k4, k5);
     search_node(head, k1);
     insert_rand(&head, X);
