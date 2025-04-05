@@ -1,0 +1,9 @@
+klase do przechowywania napisu
+klasa powinna zawierac konstruktor domyœlny, który inicjalizuje pusty napis
+konstruktor, który pobiera jako argument wskaŸnik na chara char* d³ugoœc napisu
+konstruktor inicjalizuj¹cy obiekt z talibcy znaków
+konstruktor kopiuj¹cy
+destruktor
+przeci¹¿enie operatora porównania i sumy
+metode wypisz na ekran
+metoda zwracaj¹c¹ iloœæ znaków

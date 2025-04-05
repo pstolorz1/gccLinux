@@ -1,0 +1,7 @@
+Generuj¹c sygna³y za i zp w skali logarytmicznej mo¿na odczytaæ wartoœci fmin i fmax, a tak¿e wyliczyæ W.
+Dla sygna³u za1: fmax = -120, fmix = -160, W=40
+Dla sygna³u zp1: fmax = -120, fmix = -160, W=40
+Dla sygna³u za2: fmax = -115, fmix = -153, W=38
+Dla sygna³u zp2: fmax = -120, fmix = -155, W=35
+Dla sygna³u za3: fmax = -108, fmix = -152, W=44
+Dla sygna³u zp3: fmax = -120, fmix = -157, W=37

@@ -1,0 +1,6 @@
+zdefiniowaæ klasy które bêd¹ w stanie przechowywaæ wspolrzedne figury
+nie mozna przesterowaæ
+przesuniêcie
+obwod
+pole
+wypisz

@@ -1,0 +1,36 @@
+zwierzêta
+zdefiniowaæ klasy, które bêda opisywaæ zwierzêta
+kolekcja zwierz¹t, które oddzia³ywuja na siebie
+macierz 2d
+interakcja
+drapieznik, roslinozerny zjadajo sie
+punkty zycia
+hierarchia dziedziczenia 
+koncowe liscie gotowe zwierzeta
+8 zwierzat, gatunkow
+podzial na miesozernych i roslinozernych
+drapieznik z drapieznikiem walka
+dynamiczna wielkosc tablicy, planszy, wymiar nxm albo nxn
+podawac wartosci ile zwierzat, konkretna liczba zwierzat
+8x spytaæ ile tego zwierzeta ile tego ile tego itd
+
+coma sie dziaæ:
+losowe przesuwanie(góra, dó³, lewo prawo)
+atrybuty si³y, ¿ycia
+atak
+po ilus turach niejedzenia pada i znika drapieznik
+
+wyswietlanie stos tego co jest
+zrzucenie i wczytanie planszy do pliku
+1_1_krolik
+
+symulacja zycia zwierzat
+8 gatunkow z dziedziczeniem
+nxn 
+ilosc zwierzat
+losowanie gatunkow
+zapis i wczyt do pliku
+akcje turowe walka, zycie, jedzenie
+
+lecimy po kolei po macierzy
+losujemy akcje

@@ -1,0 +1,1 @@
+Szerokoœæ pasma dla sygna³u ASK wynosi ok. 300 Hz, dla sygna³u FSK ok. 400 Hz, a dla sygna³u PSK ok. 1000 Hz
