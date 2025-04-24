@@ -32,7 +32,6 @@ int main(int argc, char **argv)
   {
     if(pw_struct != NULL)
     {
-      printf("ARG -u\n");
       printf("%d\n", pw_struct->pw_uid);
     }
   }
@@ -40,7 +39,6 @@ int main(int argc, char **argv)
   {
     if(pw_struct != NULL)
     {
-      printf("ARG -g\n");
       printf("%d\n", pw_struct->pw_gid);
     }
   }
@@ -48,7 +46,6 @@ int main(int argc, char **argv)
   {
     if(pw_struct != NULL)
     {
-      printf("NO ARG\n");
       printf("uid=%d(%s) gid=%d(%s) ", pw_struct->pw_uid, pw_struct->pw_name, pw_struct->pw_gid, pw_struct->pw_name);
       
       printf("groups=");
@@ -56,7 +53,7 @@ int main(int argc, char **argv)
       {
         struct group *gr_struct = getgrgid(groups[i]);
         if (gr_struct != NULL)
-          printf("%d(%s) ", gr_struct->gr_gid, gr_struct->gr_name);
+          printf("%d(%s),", gr_struct->gr_gid, gr_struct->gr_name);
       }
       printf("\n");
     }
