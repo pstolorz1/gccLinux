@@ -7,13 +7,14 @@
 
 int main(int argc, char **argv)
 {
-  struct passwd *pw_struct = getpwuid(getuid());
+  struct passwd* pw_struct = getpwuid(getuid());
   int groupsSize = getgroups(0, NULL);
-  gid_t *groups = (gid_t*)malloc(sizeof(gid_t) * groupsSize);
-  getgroups(groupsSize, groups);
+  gid_t* groups = (gid_t*)malloc(sizeof(gid_t) * groupsSize);
+  if(groups != NULL)
+    getgroups(groupsSize, groups);
  
-  int uArg = 0, gArg = 0, flag;
-  while ((flag = getopt (argc, argv, "ug")) != -1)
+  int uArg = 0, gArg = 0, flag = 0;
+  while ((flag = getopt(argc, argv, "ug")) != -1)
   {
     switch(flag)
     {
@@ -28,37 +29,37 @@ int main(int argc, char **argv)
     }
   }
   
-  if(uArg == 1)
+  if(pw_struct != NULL)
   {
-    if(pw_struct != NULL)
+    if(uArg == 1)
     {
       printf("%d\n", pw_struct->pw_uid);
     }
-  }
-  else if(gArg == 1)
-  {
-    if(pw_struct != NULL)
+    else if(gArg == 1)
     {
       printf("%d\n", pw_struct->pw_gid);
     }
-  }
-  else
-  {
-    if(pw_struct != NULL)
+    else
     {
       printf("uid=%d(%s) gid=%d(%s) ", pw_struct->pw_uid, pw_struct->pw_name, pw_struct->pw_gid, pw_struct->pw_name);
-      
-      printf("groups=");
+
+      struct group* gr_struct_user = getgrgid(pw_struct->pw_gid);
+      if(gr_struct_user != NULL)
+        printf("groups=%d(%s)", gr_struct_user->gr_gid, gr_struct_user->gr_name);
+
       for(int i = 0; i < groupsSize; i++)
       {
-        struct group *gr_struct = getgrgid(groups[i]);
-        if (gr_struct != NULL)
-          printf("%d(%s),", gr_struct->gr_gid, gr_struct->gr_name);
+        struct group* gr_struct = getgrgid(groups[i]);
+        if(gr_struct != NULL)
+        {
+          if(gr_struct->gr_gid < 1000)
+            printf(",%d(%s)", gr_struct->gr_gid, gr_struct->gr_name);
+        }
       }
       printf("\n");
     }
   }
-    
+
   free(groups);
 
   return 0;
