@@ -2,25 +2,25 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct Struktura
+struct structure
 {
     int i;
     char c;
     float f;
 };
 
-struct Struktura **losowanie(int N)
+struct structure** randVals(int N)
 {
-    //alokowanie tablicy struktur
-    struct Struktura **tab = (struct Struktura**)malloc(sizeof(struct Struktura*) * N);
+    //Allocate array of structures on heap
+    struct structure** tab = (struct structure**)malloc(sizeof(struct structure*) * N);
     for (int i = 0; i < N; i++)
-        tab[i] = (struct Struktura*)malloc(sizeof(struct Struktura));
+        tab[i] = (struct structure*)malloc(sizeof(struct structure));
 
     int tab1[10001];
     for(int i = 0; i < 10001; i++)
         tab1[i] = i-1000;
     
-    //losowe N
+    //Random values
     srand(time(NULL));
     for(int i = 10000; i > 0; i--)
     {
@@ -30,7 +30,7 @@ struct Struktura **losowanie(int N)
         tab1[r] = temp;
     }
     
-    //przypisywanie wartosci
+    //Set structure fields
     for (int i = 0; i < N; i++)
     {
         tab[i]->i = tab1[i];
@@ -41,14 +41,14 @@ struct Struktura **losowanie(int N)
     return(tab);
 }
 
-void kasowanie(struct Struktura **tab, int N)
+void delete(struct structure **tab, int N)
 {
     for(int i = 0; i < N; i++)
         free(tab[i]);
     free(tab);
 }
 
-void sortowanie(struct Struktura **tab, int N)
+void sort(struct structure **tab, int N)
 {
     for(int i = 1; i < N-1; i++)
     {
@@ -56,7 +56,7 @@ void sortowanie(struct Struktura **tab, int N)
         {
             if(tab[j-1]->i > tab[j]->i)
             {
-                struct Struktura *temp = tab[j-1];
+                struct structure *temp = tab[j-1];
                 tab[j-1] = tab[j];
                 tab[j] = temp;
             }
@@ -64,20 +64,20 @@ void sortowanie(struct Struktura **tab, int N)
     }
 }
 
-int zliczanie_znakow(struct Struktura **tab, int N, char X)
+int countSigns(struct structure **tab, int N, char X)
 {
-    int licznik = 0;
+    int counter = 0;
     for(int i = 0; i < N; i++)
     {
         if(tab[i]->c == X)
-            licznik++;
+            counter++;
     }
-    return(licznik);
+    return(counter);
 }
 
-void wyswietl(struct Struktura **tab, int N)
+void display(struct structure **tab, int n)
 {
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < n; i++)
         printf("%d %c %f\n", tab[i]->i, tab[i]->c, tab[i]->f);
 }
 
@@ -91,16 +91,15 @@ int main()
     char X = 'T';
     
     printf("START DATA: %d, %c\n", N, X);
-    struct Struktura **tab;
-    tab = losowanie(N);
-    sortowanie(tab, N);
-    wyswietl(tab, N);
-    printf("ilosc znakow %c = %d\n", X, zliczanie_znakow(tab, N, X));
-    kasowanie(tab, N);
+    struct structure **tab;
+    tab = randVals(N);
+    sort(tab, N);
+    display(tab, 20);
+    printf("CHAR COUNTER %c = %d\n", X, countSigns(tab, N, X));
+    delete(tab, N);
     end = clock();
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("CZAS = %f\n", time_spent);
-    //getchar();
+    printf("TIME = %f\n", time_spent);
+
     return 0;
 }
-
