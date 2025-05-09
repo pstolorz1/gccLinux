@@ -4,7 +4,7 @@
 
 char* toLower(char *c)
 {
-  char* chLower = (char *)malloc(sizeof(char) * strlen(c));
+  char* chLower = (char*)malloc(sizeof(char) * strlen(c));
   strcpy(chLower, c);
   char* ch = &chLower[0];
   
