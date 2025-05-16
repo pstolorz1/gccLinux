@@ -11,6 +11,7 @@ clean:
 #FOR COMPILATION TYPE make example.c IN CMD
 #sudo insmod example.ko
 #sudo rmmod example.ko
+#sudo rm /dev/example
 
 
 #sudo mknod /dev/example c 505 0
