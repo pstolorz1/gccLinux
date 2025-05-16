@@ -1,7 +1,4 @@
-// SO2 IS1 powt._Sys. operacyjne II_L_gr. 2 LAB03
-// Paweł Stolorz
-// sp39443@zut.edu.pl
-// gcc 39443.so2.lab03.main.c -lm
+// gcc fork_draft.c -lm
 // ./a.out abcde
 
 #include <stdio.h>
