@@ -1,4 +1,6 @@
 ._*
 .DS_Store
 *.out
+*.s
+*.o
 draft.c
